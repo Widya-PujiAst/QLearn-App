@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qlearn_app/component/controller/theme_controller.dart';
 import 'package:qlearn_app/component/data/simulasidata.dart';
 import 'package:qlearn_app/component/kategorimodul_card.dart';
 import 'package:qlearn_app/component/kuis_card.dart';
@@ -21,12 +22,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5F9),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         toolbarHeight: 70,
         elevation: 0,
         leadingWidth: 0,
         leading: null,
+        backgroundColor: Colors.transparent,
         titleSpacing: 12,
         title: Row(
           children: [
@@ -35,18 +37,21 @@ class _HomePageState extends State<HomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Q-Learn',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 Text(
                   'QRIS Learning App',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
@@ -81,14 +86,19 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Mode Tampilan'),
+                    const Text('Mode Gelap'),
                     Transform.scale(
                       scale: 0.8,
-                      child: Switch(
-                        value: isDarkMode,
-                        onChanged: (value) {
-                          setState(() => isDarkMode = value);
-                          Navigator.pop(context);
+                      child: ValueListenableBuilder<bool>(
+                        valueListenable: ThemeController().isDarkMode,
+                        builder: (context, isDark, _) {
+                          return Switch(
+                            value: isDark,
+                            onChanged: (value) {
+                              ThemeController().toggleTheme(value); // ✅ FIX
+                              Navigator.pop(context);
+                            },
+                          );
                         },
                       ),
                     ),
@@ -100,13 +110,20 @@ class _HomePageState extends State<HomePage> {
 
               const PopupMenuItem(
                 value: 'faq',
-                child: Text('Pertanyaan Umum (FAQ)'),
+                child: Padding(
+                  padding: EdgeInsets.only(right: 24),
+                  child: Text('Pertanyaan Umum (FAQ)'),
+                ),
               ),
               const PopupMenuItem(
                 value: 'about',
                 child: Text('Tentang Aplikasi'),
               ),
               const PopupMenuItem(value: 'share', child: Text('Bagikan')),
+              const PopupMenuItem(
+                value: 'tutorial',
+                child: Text('Tutorial Aplikasi'),
+              ),
             ],
           ),
         ],
@@ -124,8 +141,9 @@ class _HomePageState extends State<HomePage> {
                     child: KategorimodulCard(
                       category: ModulCategory(
                         id: 'umkm',
-                        title: 'UMKM',
-                        shortDesc: 'Panduan untuk pelaku usaha',
+                        title: 'Modul UMKM',
+                        shortDesc:
+                            'Modul yang terkhususkan untuk para UMKM yang ingin menggunakan QRIS',
                       ),
                       icon: Icons.store,
                       color: Colors.blue,
@@ -136,8 +154,9 @@ class _HomePageState extends State<HomePage> {
                     child: KategorimodulCard(
                       category: ModulCategory(
                         id: 'pembeli',
-                        title: 'Pembeli',
-                        shortDesc: 'Panduan pembeli menggunakan QRIS',
+                        title: 'Modul Pembeli',
+                        shortDesc:
+                            'Modul Pembeli yang menggunakan QRIS untuk belanja sehari hari',
                       ),
                       icon: Icons.person,
                       color: Colors.green,

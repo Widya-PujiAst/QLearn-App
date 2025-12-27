@@ -13,7 +13,7 @@ class KategoriModul extends StatelessWidget {
     final simulasiPembeli = simulasiList.firstWhere((e) => e.id == 'beli_qris');
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F5F9),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: const Text(
           'Kategori Modul',

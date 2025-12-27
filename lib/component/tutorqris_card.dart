@@ -21,7 +21,7 @@ class TutorqrisCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -37,16 +37,13 @@ class TutorqrisCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: SizedBox(
-            width: 100,
-            height: 100,
-            child: Padding(
-              padding: const EdgeInsets.all(0),
-              child: Image.asset(
-                imagePath,
-                fit: BoxFit.contain,
+              width: 100,
+              height: 100,
+              child: Padding(
+                padding: const EdgeInsets.all(0),
+                child: Image.asset(imagePath, fit: BoxFit.contain),
               ),
             ),
-          ),
           ),
 
           const SizedBox(width: 6),
@@ -68,7 +65,7 @@ class TutorqrisCard extends StatelessWidget {
                   subtitle,
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey.shade600,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -76,10 +73,7 @@ class TutorqrisCard extends StatelessWidget {
                 // BUTTON
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/tutor',
-                    );
+                    Navigator.pushNamed(context, '/tutor');
                   },
                   borderRadius: BorderRadius.circular(8),
                   child: Container(

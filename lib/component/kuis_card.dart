@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qlearn_app/page/kuis.dart';
+import 'package:qlearn_app/page/dialogkuiz.dart';
 
 class QuisCard extends StatelessWidget {
   const QuisCard({super.key});
@@ -9,8 +9,7 @@ class QuisCard extends StatelessWidget {
     return SizedBox(
       height: 200,
       child: Card(
-        color: Colors.white,
-        surfaceTintColor: Colors.white,
+        color: Theme.of(context).colorScheme.surfaceContainerLowest,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
         elevation: 3,
@@ -24,22 +23,22 @@ class QuisCard extends StatelessWidget {
               ),
             ),
 
-            // ===== GRADIENT BIAR TEKS KEBACA =====
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [
-                      Colors.white.withValues(alpha: 0.95),
-                      Colors.white.withValues(alpha: 0.5),
-                      Colors.transparent,
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // // ===== GRADIENT BIAR TEKS KEBACA =====
+            // Positioned.fill(
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       gradient: LinearGradient(
+            //         begin: Alignment.centerLeft,
+            //         end: Alignment.centerRight,
+            //         colors: [
+            //           Colors.white.withValues(alpha: 0.95),
+            //           Colors.white.withValues(alpha: 0.5),
+            //           Colors.transparent,
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
 
             // ===== TEKS + BUTTON (KIRI) =====
             Positioned(
@@ -52,22 +51,23 @@ class QuisCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'WAKTUNYA KUIZ!',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
 
                     const SizedBox(height: 6),
 
-                    const Text(
+                    Text(
                       'Siap membuktikan pemahamanmu?\nIkuti kuiz dan lihat hasilnya!',
                       style: TextStyle(
                         fontSize: 12,
                         height: 1.4,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
 
@@ -77,7 +77,7 @@ class QuisCard extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => Kuis()),
+                          MaterialPageRoute(builder: (_) => QuizStartPage()),
                         );
                       },
                       style: ElevatedButton.styleFrom(

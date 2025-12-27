@@ -10,22 +10,34 @@ class DetailSimulasi extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as SimulasiCategory;
 
     return Scaffold(
-      appBar: AppBar(title: Text(data.title), centerTitle: true),
+      backgroundColor: Colors.white,
 
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          // ===== DESKRIPSI =====
-          Text(
-            data.description,
-            style: const TextStyle(fontSize: 14, color: Colors.black54),
+      /// ===== APP BAR =====
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          data.title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
+        ),
+      ),
 
-          const SizedBox(height: 20),
-
-          // ===== LIST STEP =====
-          ...data.steps.map((step) => _StepItem(step: step)),
-        ],
+      /// ===== CONTENT =====
+      body: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        itemCount: data.steps.length,
+        itemBuilder: (context, index) {
+          final step = data.steps[index];
+          return _StepItem(step: step);
+        },
       ),
     );
   }
@@ -38,42 +50,38 @@ class _StepItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // ===== GAMBAR =====
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(step.image, height: 200, fit: BoxFit.contain),
-          ),
+    return Column(
+      children: [
+        /// ===== GAMBAR =====
+        Image.asset(step.image, height: 200, fit: BoxFit.contain),
 
-          const SizedBox(height: 12),
+        const SizedBox(height: 16),
 
-          // ===== NOMOR STEP =====
-          CircleAvatar(
-            radius: 18,
-            backgroundColor: Colors.green,
-            child: Text(
-              step.step.toString(),
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+        /// ===== TEKS =====
+        Text(
+          step.text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 14, height: 1.4),
+        ),
+
+        const SizedBox(height: 16),
+
+        /// ===== NOMOR STEP =====
+        CircleAvatar(
+          radius: 20,
+          backgroundColor: Colors.green,
+          child: Text(
+            step.step.toString(),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
           ),
+        ),
 
-          const SizedBox(height: 8),
-
-          // ===== DESKRIPSI =====
-          Text(
-            step.text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14),
-          ),
-        ],
-      ),
+        const SizedBox(height: 50),
+      ],
     );
   }
 }

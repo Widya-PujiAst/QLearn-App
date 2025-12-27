@@ -7,50 +7,57 @@ class FaqItem {
 
 final List<FaqItem> faqDummyData = [
   FaqItem(
-    question: 'Apa yang harus dilakukan jika QRIS disalahgunakan?',
+    question: 'Apakah semua aplikasi pembayaran bisa digunakan untuk QRIS?',
     answer:
-        'Segera laporkan ke penyedia layanan pembayaran atau bank terkait. '
-        'Simpan bukti transaksi dan hubungi call center resmi.',
+        'Ya. Selama aplikasi pembayaran terdaftar dan mendukung QRIS, '
+        'pembeli dapat menggunakannya untuk membayar di merchant mana pun '
+        'yang menyediakan QRIS.',
   ),
   FaqItem(
     question: 'Bagaimana cara UMKM mendaftar QRIS?',
     answer:
-        'UMKM dapat mendaftar QRIS melalui bank atau penyedia jasa pembayaran '
-        'yang telah bekerja sama dengan Bank Indonesia.',
-  ),
-  FaqItem(
-    question: 'Bagaimana jika transaksi QRIS gagal tetapi saldo terpotong?',
-    answer:
-        'Saldo biasanya akan dikembalikan secara otomatis. '
-        'Jika tidak, segera hubungi layanan pelanggan aplikasi pembayaran.',
-  ),
-  FaqItem(
-    question: 'Apa yang harus dilakukan jika salah memasukkan nominal?',
-    answer:
-        'Hubungi penjual untuk melakukan pengembalian dana (refund) '
-        'sesuai kebijakan masing-masing penyedia.',
-  ),
-  FaqItem(
-    question: 'Apakah QRIS aman digunakan?',
-    answer:
-        'QRIS aman digunakan karena berada di bawah pengawasan '
-        'Bank Indonesia dan menggunakan sistem pembayaran terstandar.',
+        'UMKM dapat mendaftar melalui bank atau penyedia jasa pembayaran resmi (PJSP) '
+        'dengan melengkapi data usaha dan identitas pemilik.',
   ),
   FaqItem(
     question: 'Bagaimana cara memastikan QRIS yang digunakan asli?',
     answer:
-        'Pastikan QRIS memiliki logo resmi Bank Indonesia dan '
-        'gunakan aplikasi pembayaran yang terpercaya.',
+        'Pastikan nama merchant muncul dengan benar di aplikasi pembayaran. '
+        'Hindari melakukan pembayaran jika kode QR terlihat mencurigakan '
+        'atau mengarah ke rekening pribadi.',
   ),
   FaqItem(
-    question: 'Apakah semua aplikasi pembayaran bisa digunakan untuk QRIS?',
+    question: 'Apakah QRIS aman digunakan?',
     answer:
-        'Ya, selama aplikasi tersebut sudah mendukung QRIS '
-        'dan terdaftar resmi.',
+        'QRIS tergolong aman karena transaksi diproses melalui sistem pembayaran resmi '
+        'dan diawasi oleh Bank Indonesia. Setiap transaksi juga menampilkan '
+        'identitas merchant sebelum pembayaran dikonfirmasi.',
+  ),
+  FaqItem(
+    question: 'Apa yang harus dilakukan jika salah memasukkan nominal?',
+    answer:
+        'Jika transaksi belum dikonfirmasi, nominal masih bisa diubah. '
+        'Jika pembayaran sudah berhasil, pembeli dapat menghubungi merchant '
+        'atau melapor melalui aplikasi pembayaran.',
+  ),
+  FaqItem(
+    question: 'Bagaimana jika transaksi QRIS gagal tetapi saldo terpotong?',
+    answer:
+        'Pembeli dapat mengecek status transaksi di aplikasi. '
+        'Jika saldo terpotong tanpa pembayaran berhasil, '
+        'segera laporkan ke layanan pelanggan aplikasi yang digunakan.',
   ),
   FaqItem(
     question: 'Apakah QRIS bisa digunakan tanpa koneksi internet?',
     answer:
-        'Tidak. QRIS membutuhkan koneksi internet untuk memproses transaksi.',
+        'Tidak. Transaksi QRIS memerlukan koneksi internet agar '
+        'sistem dapat memproses pembayaran secara real-time.',
+  ),
+  FaqItem(
+    question: 'Apa yang harus dilakukan jika QRIS disalahgunakan?',
+    answer:
+        'Jika terjadi penyalahgunaan atau indikasi penipuan, '
+        'segera hentikan transaksi dan laporkan ke bank, '
+        'penyedia aplikasi pembayaran, atau pihak berwenang.',
   ),
 ];

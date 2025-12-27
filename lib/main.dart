@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:qlearn_app/component/controller/theme_controller.dart';
 import 'package:qlearn_app/page/HomePage.dart';
 import 'package:qlearn_app/page/about.dart';
 import 'package:qlearn_app/page/detail_modul.dart';
 import 'package:qlearn_app/page/detail_simulasi.dart';
+import 'package:qlearn_app/page/dialogkuiz.dart';
 import 'package:qlearn_app/page/faq.dart';
 import 'package:qlearn_app/page/kategori_modul.dart';
 import 'package:qlearn_app/page/kategori_simulasi.dart';
 import 'package:qlearn_app/page/kuis.dart';
+import 'package:qlearn_app/page/quiz_review_page.dart';
+import 'package:qlearn_app/page/splash_page.dart';
 import 'package:qlearn_app/page/tutorialqris.dart';
 
 void main() {
@@ -18,24 +22,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      initialRoute: '/',
-      routes: {
-        '/modul': (context) => const KategoriModul(),
-        '/kuis': (context) => const Kuis(),
-        '/simulasi': (context) => const KategoriSimulasi(),
-        '/tutor': (context) => const Tutorialqris(),
-        '/faq': (context) => const FaqPage(),
-        '/about': (context) => const AboutPage(),
-        '/detail_modul': (context) => const DetailModulPage(),
-        '/detail_simulasi': (context) => const DetailSimulasi(),
+    return ValueListenableBuilder<bool>(
+      valueListenable: ThemeController().isDarkMode,
+      builder: (context, isDark, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF00C964), // ✅ HIJAU
+              brightness: Brightness.light,
+            ),
+          ),
+
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF00C964),
+              brightness: Brightness.dark,
+            ),
+          ),
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+          routes: {
+            '/main': (_) => const Navbottom(),
+            '/modul': (context) => const KategoriModul(),
+            '/quizStart': (context) => const QuizStartPage(),
+            '/quiz': (_) => const QuizPage(),
+            '/quiz-review': (_) => const QuizReviewPage(),
+            '/simulasi': (context) => const KategoriSimulasi(),
+            '/tutor': (context) => const Tutorialqris(),
+            '/faq': (context) => const FaqPage(),
+            '/about': (context) => const AboutPage(),
+            '/detail_modul': (context) => const DetailModulPage(),
+            '/detail_simulasi': (context) => const DetailSimulasi(),
+          },
+          home: const SplashPage(),
+        );
       },
-      home: const Navbottom(),
     );
   }
 }
@@ -53,7 +76,7 @@ class _NavbottomState extends State<Navbottom> {
   final List<Widget> _pages = const [
     HomePage(),
     KategoriModul(),
-    Kuis(),
+    QuizStartPage(),
     KategoriSimulasi(),
   ];
 
@@ -74,8 +97,8 @@ class _NavbottomState extends State<Navbottom> {
         unselectedFontSize: 10,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: const Color.fromARGB(255, 0, 201, 100),
-        unselectedItemColor: Colors.black54,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
 
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
