@@ -97,17 +97,17 @@ final simulasiList = [
       SimulasiStep(
         step: 2,
         text: 'Penjual memverifikasi transaksi \n yang direfund',
-        image: 'lib/component/images/refn_2.png',
+        image: 'lib/component/images/refn_4.png',
       ),
       SimulasiStep(
         step: 3,
         text: 'Sistem memproses pengembalian dana',
-        image: 'lib/component/images/refn_3.png',
+        image: 'lib/component/images/refn_5.png',
       ),
       SimulasiStep(
         step: 4,
         text: 'Pembeli menerima notifikasi \n bahwa refund berhasil',
-        image: 'lib/component/images/refn_4.png',
+        image: 'lib/component/images/refn_6.png',
       ),
     ],
   ),

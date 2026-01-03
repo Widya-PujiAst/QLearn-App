@@ -120,10 +120,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text('Tentang Aplikasi'),
               ),
               const PopupMenuItem(value: 'share', child: Text('Bagikan')),
-              const PopupMenuItem(
-                value: 'tutorial',
-                child: Text('Tutorial Aplikasi'),
-              ),
+              
             ],
           ),
         ],

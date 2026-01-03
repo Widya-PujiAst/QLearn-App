@@ -8,7 +8,7 @@ final Map<String, Map<String, dynamic>> modulData = {
       title:
           'Penjelasan tentang penggunaan QRIS bagi \n UMKM dengan lengkap hanya 3 menit saja!',
       source: 'Youtube',
-      youtubeUrl: 'Youtube',
+      youtubeUrl: 'https://youtu.be/UyPWviGfLbo?si=BAzOX770V--PxkXu',
     ),
     'materi': [
       ModulMateri(
@@ -103,7 +103,7 @@ final Map<String, Map<String, dynamic>> modulData = {
       title:
           'Penjelasan tentang penggunaan QRIS Bagi Pembeli \n untuk sehari-hari, lengkap hanya 3 menit saja!',
       source: 'Youtube',
-      youtubeUrl: 'Youtube',
+      youtubeUrl: 'https://youtu.be/UyPWviGfLbo?si=BAzOX770V--PxkXu',
     ),
     'materi': [
       ModulMateri(

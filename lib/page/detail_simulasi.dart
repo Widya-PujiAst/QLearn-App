@@ -10,7 +10,7 @@ class DetailSimulasi extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as SimulasiCategory;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       /// ===== APP BAR =====
       appBar: AppBar(
@@ -18,20 +18,22 @@ class DetailSimulasi extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onSurface,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           data.title,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),
 
       /// ===== CONTENT =====
-      body: ListView.builder(
+      body: 
+      ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         itemCount: data.steps.length,
         itemBuilder: (context, index) {
@@ -61,7 +63,8 @@ class _StepItem extends StatelessWidget {
         Text(
           step.text,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 14, height: 1.4),
+          style: TextStyle(fontSize: 14, height: 1.4, color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
 
         const SizedBox(height: 16),

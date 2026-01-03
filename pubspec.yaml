@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  url_launcher: ^6.3.0
   lottie: ^3.1.0
   flutter:
     sdk: flutter
@@ -37,8 +38,14 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.14.4"
   flutter_test:
     sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/component/images/logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -77,15 +84,13 @@ flutter:
     - lib/component/images/tutor_3.png
     - lib/component/images/tutor_2.png
     - lib/component/images/tutor_1.png
+    - lib/component/images/refn_6.png
+    - lib/component/images/refn_5.png
     - lib/component/images/refn_4.png
-    - lib/component/images/refn_3.png
-    - lib/component/images/refn_2.png
     - lib/component/images/refn_1.png
     - lib/component/images/simulasi_penjual.png
     - lib/component/images/simulasi_pembeli.png
     - lib/component/images/simulasi_refund.png
-    - lib/component/images/qris_umkm.png
-    - lib/component/images/qris_pembeli.png
     - lib/component/images/kuis.png
     - lib/component/images/congrats_kuiz.png
     - lib/component/lottie/splash_anim.json
