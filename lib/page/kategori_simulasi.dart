@@ -28,7 +28,7 @@ class KategoriSimulasi extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 16,
             crossAxisSpacing: 16,
-            childAspectRatio: 0.75,
+            childAspectRatio: 0.72,
           ),
           itemBuilder: (context, index) {
             return SimulasiCard(data: simulasiList[index]);

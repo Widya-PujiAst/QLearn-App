@@ -9,7 +9,7 @@ class QuisCard extends StatelessWidget {
     return SizedBox(
       height: 200,
       child: Card(
-        color: Theme.of(context).colorScheme.surfaceContainerLowest,
+        color: Theme.of(context).colorScheme.surfaceContainerLow,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
         elevation: 3,
@@ -22,23 +22,6 @@ class QuisCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-
-            // // ===== GRADIENT BIAR TEKS KEBACA =====
-            // Positioned.fill(
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       gradient: LinearGradient(
-            //         begin: Alignment.centerLeft,
-            //         end: Alignment.centerRight,
-            //         colors: [
-            //           Colors.white.withValues(alpha: 0.95),
-            //           Colors.white.withValues(alpha: 0.5),
-            //           Colors.transparent,
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
 
             // ===== TEKS + BUTTON (KIRI) =====
             Positioned(
@@ -56,7 +39,7 @@ class QuisCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
 

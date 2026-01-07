@@ -120,7 +120,6 @@ class _HomePageState extends State<HomePage> {
                 child: Text('Tentang Aplikasi'),
               ),
               const PopupMenuItem(value: 'share', child: Text('Bagikan')),
-              
             ],
           ),
         ],
@@ -194,7 +193,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildSimulasiHorizontal() {
     return SizedBox(
-      height: 240,
+      height: 250,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: simulasiList.length,

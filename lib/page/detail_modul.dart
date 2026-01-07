@@ -99,7 +99,7 @@ class DetailModulPage extends StatelessWidget {
                 child: Column(
                   children: [
                     // ===== VIDEO YOUTUBE =====
-                    if (video != null && videoId != null) ...[
+                      if (video != null && videoId != null) ...[
                       ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: InkWell(
@@ -123,7 +123,7 @@ class DetailModulPage extends StatelessWidget {
                               Container(
                                 decoration: BoxDecoration(
                                   color: Colors.black45,
-                                  borderRadius: BorderRadius.circular(50),
+                                  shape: BoxShape.circle,
                                 ),
                                 padding: const EdgeInsets.all(12),
                                 child: const Icon(
@@ -137,16 +137,27 @@ class DetailModulPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      GestureDetector(
-                        onTap: () => _openYoutube(video.youtubeUrl),
-                        child: const Text(
-                          'Tonton di YouTube',
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontWeight: FontWeight.w500,
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Sumber: ',
+                            style: TextStyle(fontWeight: FontWeight.w500),
                           ),
-                        ),
+                          GestureDetector(
+                            onTap: () => _openYoutube(video.youtubeUrl),
+                            child: const Text(
+                              'YouTube',
+                              style: TextStyle(
+                                color: Colors.green,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+
                       const SizedBox(height: 16),
                     ],
 
